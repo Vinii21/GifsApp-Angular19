@@ -14,6 +14,10 @@ export const routes: Routes = [
         loadComponent: () => import('./gifs/pages/searchPage/searchPage.component')
       },
       {
+        path: 'history/:query',
+        loadComponent: () => import('./gifs/pages/gifHistory/gifHistory.component')
+      },
+      {
         path: '**',
         redirectTo: 'trending'
       }
