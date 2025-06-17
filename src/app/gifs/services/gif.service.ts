@@ -58,4 +58,9 @@ export class GifService {
     }) */
   }
 
+  getHistoryGifs(query: string): Gif[] {
+    // Acceso a la propiedad del objeto mediante corchetes, bracket notation
+    return this.searchHistory()[query] ?? [];
+  }
+
 }
