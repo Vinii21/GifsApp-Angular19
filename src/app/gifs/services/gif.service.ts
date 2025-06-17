@@ -26,6 +26,16 @@ export class GifService {
   // Cada que la señal searchHistry() cambie, se volverá a computar el searchHistoryKey()
   searchHistoryKey = computed(()=> Object.keys(this.searchHistory()));
 
+  // [[gif1,gif2,gif3],[gif4,gif5,gif6]]
+  // Para galería con diseño Masonry
+  trendingGifGroup = computed<Gif[][]>(()=>{
+    const groups = [];
+    for(let i = 0; i < this.trendingGifs().length; i += 3){
+      groups.push(this.trendingGifs().slice(i, i + 3));
+    };
+    return groups;
+  });
+
   constructor () {
     this.loadTrendingGifs();
   };
